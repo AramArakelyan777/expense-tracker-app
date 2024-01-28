@@ -1,3 +1,7 @@
+body {
+    text-align: center;
+}
+
 @font-face {
     font-family: LexendRegular;
     src: url("./assets/fonts/Lexend-Regular.ttf");

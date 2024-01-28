@@ -22,6 +22,7 @@
 .homePageContent {
     padding: 0 15px 20px 0;
     width: 50%;
+    text-align: left;
 }
 
 .homePageContent h1 {
