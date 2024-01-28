@@ -1,0 +1,32 @@
+@font-face {
+    font-family: LexendExtraBold;
+    src: url("./fonts/Lexend-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: LexendBold;
+    src: url("./fonts/Lexend-Bold.ttf");
+}
+
+@font-face {
+    font-family: LexendLight;
+    src: url("./fonts/Lexend-Light.ttf");
+}
+
+.main-header {
+    font-family: LexendExtraBold;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.second-header {
+    font-family: LexendBold;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.input-light {
+    font-family: LexendLight;
+    font-size: 15px;
+    font-weight: 300;
+}
