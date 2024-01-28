@@ -1,13 +1,3 @@
-@font-face {
-    font-family: LexendExtraBold;
-    src: url("../../assets/fonts/Lexend-ExtraBold.ttf");
-}
-
-@font-face {
-    font-family: LexendBold;
-    src: url("../../assets/fonts/Lexend-Bold.ttf");
-}
-
 .homepage {
     display: flex;
     padding: 30px;
@@ -25,23 +15,12 @@
     text-align: left;
 }
 
-.homePageContent h1 {
-    font-family: LexendExtraBold;
-    font-size: 40px;
-    font-weight: 800;
-}
-
 .homePageContent p {
     font-weight: 400;
 }
 
 .homePageContentInfo {
     margin-top: 150px;
-}
-
-.homePageContentInfo h2 {
-    font-family: LexendBold;
-    font-size: 25px;
 }
 
 .homePageContentInfo ul {

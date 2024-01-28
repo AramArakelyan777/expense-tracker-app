@@ -1,6 +1,7 @@
 import React from 'react';
 import homePageBg from '../../assets/img/homePageImage.jpg';
 import './HomePage.css';
+import "../../assets/text.css"
 import { FaMoneyBillWave } from 'react-icons/fa';
 import { GrConfigure } from 'react-icons/gr';
 import { FaListAlt, FaSearchDollar, FaChartArea } from 'react-icons/fa';
@@ -10,10 +11,10 @@ export default function HomePage() {
     return (
         <div className="homepage">
             <div className="homePageContent">
-                <h1>Track today, prosper tomorrow.</h1>
+                <h1 className="main-header">Track today, prosper tomorrow.</h1>
                 <p>Experience financial clarity with every transaction.</p>
                 <div className="homePageContentInfo">
-                    <h2>What can you do here?</h2>
+                    <h2 className="second-header">What can you do here?</h2>
                     <ul>
                         <IconContext.Provider value={{ size: 25 }}>
                             <li>
