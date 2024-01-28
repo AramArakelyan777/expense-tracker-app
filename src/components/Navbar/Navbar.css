@@ -1,6 +1,6 @@
 .navbar {
     background-color: #78D98F;
-    padding: 25px;
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -8,7 +8,7 @@
 }
 
 .logo {
-    width: 200px;
+    width: 250px;
 }
 
 .navbar-links a {
@@ -20,11 +20,5 @@
 }
 
 .navbar-links a.active {
-    color: green;
-}
-
-@media screen and (max-width: 310px) {
-    .navbar-links a {
-        font-size: 13px;
-    }
+    color: white;
 }
