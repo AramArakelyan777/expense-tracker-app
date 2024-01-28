@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAuth } from './auth'
 import { useNavigate } from 'react-router-dom'
 import "./Login.css"
+import Button from '../Button/Button'
 
 
 function Login() {
@@ -19,10 +20,10 @@ function Login() {
             <p>Your financial journey is just a login away. Experience the convenience of tracking,<br />managing, and optimizing your expenses—all in one secure place.</p>
             <form className="loginForm">
                 <input className="username" placeholder="Enter Your Username" type='text' onChange={evt => setUser(evt.target.value)} /><br />
-                <button className="logIn" onClick={() => {
+                <Button onClick={() => {
                     auth.login(user)
                     navigate("/", { replace: true })
-                }}>Log In</button>
+                }}>Log In</Button>
             </form>
         </div>
     )
