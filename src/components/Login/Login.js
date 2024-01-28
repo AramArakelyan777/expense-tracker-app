@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from './auth'
 import { useNavigate } from 'react-router-dom'
+import "./Login.css"
 
 
 function Login() {
@@ -14,14 +15,15 @@ function Login() {
 
     return (
         <div>
-            <label>
-                <p>Username</p>
+            <h1 className='loginHeader'>Unlock the door to financial insights. Log in now.</h1>
+            <p>Your financial journey is just a login away. Experience the convenience of tracking,<br />managing, and optimizing your expenses—all in one secure place.</p>
+            <form className="loginForm">
                 <input className="username" placeholder="Enter Your Username" type='text' onChange={evt => setUser(evt.target.value)} />
-            </label>
-            <button className="logIn" onClick={() => {
-                auth.login(user)
-                navigate("/", { replace: true })
-            }}>Log In</button>
+                <button className="logIn" onClick={() => {
+                    auth.login(user)
+                    navigate("/", { replace: true })
+                }}>Log In</button>
+            </form>
         </div>
     )
 }

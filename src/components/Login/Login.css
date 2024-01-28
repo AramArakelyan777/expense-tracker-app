@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+}
+
+@font-face {
+    font-family: LexendExtraBold;
+    src: url("../../assets/fonts/Lexend-ExtraBold.ttf");
+}
+
+.loginHeader {
+    color: #000;
+    font-family: LexendExtraBold;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 50px;
+}
+
+.loginForm {
+    margin-top: 70px;
+}
