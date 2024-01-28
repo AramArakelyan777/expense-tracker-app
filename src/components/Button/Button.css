@@ -10,7 +10,8 @@
     margin-top: 15px;
 }
 
-.login {
+.login,
+.ok {
     background: #78D98F;
     color: white;
 }

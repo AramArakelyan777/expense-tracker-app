@@ -1,0 +1,16 @@
+.search,
+.salary,
+.category {
+    width: 350px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 10px;
+}
+
+.yourSalary,
+.addACategory,
+.totalChart,
+.donutChart {
+    margin-top: 80px;
+}
