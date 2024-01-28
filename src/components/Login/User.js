@@ -11,7 +11,7 @@ function User() {
         <div>
             <h1 className="logoutHeader">Logout and return when you need us.</h1>
             <p>Thank you for trusting us with your financial journey, {auth.user}.</p>
-            <Button onClick={() => {
+            <Button className="button logout" onClick={() => {
                 auth.logout()
                 navigate("/")
             }}>Log Out</Button>

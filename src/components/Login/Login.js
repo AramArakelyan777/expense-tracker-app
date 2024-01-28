@@ -20,7 +20,7 @@ function Login() {
             <p>Your financial journey is just a login away. Experience the convenience of tracking,<br />managing, and optimizing your expenses—all in one secure place.</p>
             <form className="loginForm">
                 <input className="username" placeholder="Enter Your Username" type='text' onChange={evt => setUser(evt.target.value)} /><br />
-                <Button onClick={() => {
+                <Button className="button login" onClick={() => {
                     auth.login(user)
                     navigate("/", { replace: true })
                 }}>Log In</Button>

@@ -7,10 +7,10 @@
     font-weight: 700;
     border: none;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 .login {
-    margin-top: 15px;
     background: #78D98F;
     color: white;
 }
