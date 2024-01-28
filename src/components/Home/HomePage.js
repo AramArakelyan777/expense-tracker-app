@@ -1,6 +1,10 @@
-import React from 'react'
-import homePageBg from "../../assets/img/homePageImage.jpg"
-import "./HomePage.css"
+import React from 'react';
+import homePageBg from '../../assets/img/homePageImage.jpg';
+import './HomePage.css';
+import { FaMoneyBillWave } from 'react-icons/fa';
+import { GrConfigure } from 'react-icons/gr';
+import { FaListAlt, FaSearchDollar, FaChartArea } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 
 export default function HomePage() {
     return (
@@ -11,15 +15,40 @@ export default function HomePage() {
                 <div className="homePageContentInfo">
                     <h2>What can you do here?</h2>
                     <ul>
-                        <li>Track your expenses: easily categorize your expenses.</li>
-                        <li>Add expenses and income: seamlessly add expenses or delete the existing ones.</li>
-                        <li>Expense list: view a comprehensive list of your expenses, including date, description, amount, and category.</li>
-                        <li>Filter and search: filter and search expenses based on date range.</li>
-                        <li>Expense summary: get a quick overview of total expenses and income, also with interactive charts. </li>
+                        <IconContext.Provider value={{ size: 25 }}>
+                            <li>
+                                <FaMoneyBillWave style={{ marginRight: '10px' }} />
+                                Track your expenses: easily categorize your expenses.
+                            </li>
+                            <li>
+                                <IconContext.Provider value={{ size: 25 }}>
+                                    <GrConfigure style={{ marginRight: '10px' }} />
+                                </IconContext.Provider>
+                                Add expenses and income: seamlessly add expenses or delete the existing ones.
+                            </li>
+                            <li>
+                                <IconContext.Provider value={{ size: 25 }}>
+                                    <FaListAlt style={{ marginRight: '10px' }} />
+                                </IconContext.Provider>
+                                Expense list: view a comprehensive list of your expenses, including date, description, amount, and category.
+                            </li>
+                            <li>
+                                <IconContext.Provider value={{ size: 25 }}>
+                                    <FaSearchDollar style={{ marginRight: '10px' }} />
+                                </IconContext.Provider>
+                                Filter and search: filter and search expenses based on date range.
+                            </li>
+                            <li>
+                                <IconContext.Provider value={{ size: 25 }}>
+                                    <FaChartArea style={{ marginRight: '10px' }} />
+                                </IconContext.Provider>
+                                Expense summary: get a quick overview of total expenses and income, also with interactive charts.
+                            </li>
+                        </IconContext.Provider>
                     </ul>
                 </div>
             </div>
             <img alt="homePageImage" src={homePageBg} className="homePageImage" />
-        </div>
-    )
+        </div >
+    );
 }

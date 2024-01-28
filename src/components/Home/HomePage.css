@@ -43,8 +43,14 @@
     font-size: 25px;
 }
 
+.homePageContentInfo ul {
+    padding-left: 10px;
+}
+
 .homePageContentInfo ul li {
     margin-top: 25px;
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 1000px) {
