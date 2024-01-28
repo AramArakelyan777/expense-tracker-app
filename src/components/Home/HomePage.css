@@ -10,6 +10,8 @@
 
 .homepage {
     display: flex;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 .homePageImage {
@@ -18,9 +20,8 @@
 }
 
 .homePageContent {
-    padding: 30px;
-    box-sizing: border-box;
-    text-align: left;
+    padding: 0 15px 20px 0;
+    width: 50%;
 }
 
 .homePageContent h1 {
@@ -44,4 +45,21 @@
 
 .homePageContentInfo ul li {
     margin-top: 25px;
+}
+
+@media screen and (max-width: 1000px) {
+    .homepage {
+        display: block;
+    }
+
+    .homePageContent,
+    .homePageImage {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .homepage {
+        padding: 15px;
+    }
 }

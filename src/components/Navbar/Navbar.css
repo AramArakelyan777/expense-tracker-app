@@ -14,11 +14,16 @@
 .navbar-links a {
     margin: 0 20px 0 20px;
     color: #000;
-    font-size: 20px;
     font-weight: 700;
     text-decoration: none;
 }
 
 .navbar-links a.active {
     color: white;
+}
+
+@media screen and (max-width: 620px) {
+    .navbar-links a {
+        margin: 0 10px 0 10px;
+    }
 }
