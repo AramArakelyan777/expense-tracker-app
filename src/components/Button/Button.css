@@ -1,12 +1,21 @@
 .button {
     width: 150px;
     height: 35px;
-    margin-top: 15px;
     border-radius: 10px;
-    background: #78D98F;
-    color: #FFF;
+    color: black;
     font-size: 15px;
     font-weight: 700;
     border: none;
     cursor: pointer;
+}
+
+.login {
+    margin-top: 15px;
+    background: #78D98F;
+    color: white;
+}
+
+.logout {
+    background-color: red;
+    color: white;
 }
