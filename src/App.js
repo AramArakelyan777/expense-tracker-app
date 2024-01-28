@@ -1,9 +1,13 @@
 import './App.css'
+import { Routes, Route } from "react-router-dom"
+import HomePage from "./components/Home/HomePage"
 
 function App() {
     return (
         <div className="App">
-            Initial
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+            </Routes>
         </div>
     )
 }
