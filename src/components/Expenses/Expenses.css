@@ -14,3 +14,19 @@
 .donutChart {
     margin-top: 100px;
 }
+
+.add {
+    width: 100px;
+    height: 30px;
+    border: none;
+    margin-top: 15px;
+    background-color: #78D98F;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.categoryDiv {
+    margin-top: 70px;
+}

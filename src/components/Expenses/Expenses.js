@@ -1,10 +1,25 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import "./Expenses.css"
 import "../../assets/text.css"
-import Button from "../Button/Button"
+// import Expense from './Expense'
+import Category from "./Category"
 
 export default function Expenses() {
     const [salary, setSalary] = useState()
+    const [category, setCategory] = useState("")
+
+    const categoryReducer = (state, action) => {
+        switch (action.type) {
+            case "ADD_A_CATEGORY":
+                return [
+                    ...state,
+                    { id: Math.round(Math.random() * 10000000), name: action.payload.name }
+                ]
+            default:
+                return state
+        }
+    }
+    const [categoriesState, dispatchCategories] = useReducer(categoryReducer, [])
 
     return (
         <>
@@ -16,9 +31,16 @@ export default function Expenses() {
                 <input type='number' className="salary input-light" placeholder='Your Salary' value={salary} onChange={evt => setSalary(evt.target.value)} />
             </div>
 
+            <div className='categoryDiv'>
+                {categoriesState.map(item => <Category key={item.id} name={item.name} />)}
+            </div>
+
             <form className='addACategory'>
-                <input type="text" className="category input-light" placeholder='Add a category' /><br />
-                <Button className="button ok">Add</Button>
+                <input type="text" className="category input-light" placeholder='Add a category' value={category} onChange={evt => setCategory(evt.target.value)} /><br />
+                <button className="add" onClick={(evt) => {
+                    evt.preventDefault()
+                    dispatchCategories({ type: "ADD_A_CATEGORY", payload: { name: category } })
+                }}>Add</button>
             </form>
 
             <div className="donutChart">
