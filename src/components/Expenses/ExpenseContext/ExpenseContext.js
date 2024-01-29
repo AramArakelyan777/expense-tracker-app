@@ -8,7 +8,7 @@ export const ExpenseContextProvider = ({ children }) => {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             console.log('Date value changed:', date);
-        }, 800);
+        }, 1000);
 
         return () => clearTimeout(timeoutId);
     }, [date])
@@ -18,12 +18,12 @@ export const ExpenseContextProvider = ({ children }) => {
     }
 
 
-    const [expenseAmmount, setExpenseAmmount] = useState(0)
+    const [expenseAmmount, setExpenseAmmount] = useState()
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             console.log('Expense ammount value changed:', expenseAmmount);
-        }, 800)
+        }, 1000)
 
         return () => clearTimeout(timeoutId)
     }, [expenseAmmount])
@@ -38,7 +38,7 @@ export const ExpenseContextProvider = ({ children }) => {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             console.log('Description value changed:', description);
-        }, 800)
+        }, 1000)
 
         return () => clearTimeout(timeoutId)
     }, [description])
@@ -48,5 +48,5 @@ export const ExpenseContextProvider = ({ children }) => {
     }
 
 
-    return <ExpenseContext.Provider value={{ handleDateChange, handleAmmountChange, handleDescriptionChange }}>{children}</ExpenseContext.Provider>
+    return <ExpenseContext.Provider value={{ date, expenseAmmount, description, handleDateChange, handleAmmountChange, handleDescriptionChange }}>{children}</ExpenseContext.Provider>
 }

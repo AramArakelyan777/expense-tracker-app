@@ -50,11 +50,25 @@
     margin-top: 20px;
 }
 
-.description, .expense, .date {
+.descriptionInput,
+.expenseInput,
+.dateInput {
     padding: 10px;
     width: 300px;
     resize: none;
     border-radius: 10px;
     border: 1px solid black;
     margin-top: 10px;
+}
+
+.oneExpense {
+    margin-top: 20px;
+}
+
+.date {
+    color: #BCBCBC;
+}
+
+.expenseAmmount {
+    color: red;
 }
