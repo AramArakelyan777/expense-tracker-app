@@ -1,30 +1,12 @@
-import React, { useReducer, useContext, useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import "../../assets/text.css"
 import Expense from './Expense'
 import "./Expenses.css"
-import { ExpenseContext } from "./ExpenseContext/ExpenseContext"
-
-const expenseReducer = (state, action) => {
-    switch (action.type) {
-        case "ADD_AN_EXPENSE":
-            return [
-                ...state,
-                {
-                    id: Math.round(Math.random() * 10000000),
-                    date: action.payload.date,
-                    expenseAmmount: action.payload.expenseAmmount,
-                    description: action.payload.description,
-                }
-            ]
-        default:
-            return state
-    }
-}
+import { ExpenseContext, ExpenseContextProvider } from "./ExpenseContext/ExpenseContext"
 
 export default function Category({ name }) {
-    const [expensesList, dispatchExpensesList] = useReducer(expenseReducer, [])
-
     const { date, expenseAmmount, description, handleDateChange, handleAmmountChange, handleDescriptionChange } = useContext(ExpenseContext)
+    const { expensesList, addExpense } = useContext(ExpenseContextProvider)
 
     const dateRef = useRef(null)
     const expenseAmmountRef = useRef(null)
@@ -68,7 +50,7 @@ export default function Category({ name }) {
                         evt.preventDefault()
 
                         if (date && expenseAmmount && description) {
-                            dispatchExpensesList({ type: "ADD_AN_EXPENSE", payload: { date, expenseAmmount, description } })
+                            addExpense(date, expenseAmmount, description)
                             dateRef.current.value = null
                             expenseAmmountRef.current.value = null
                             descriptionRef.current.value = ""
@@ -81,7 +63,7 @@ export default function Category({ name }) {
                 </button>
             </form>
 
-            <h2 className='second-header'>{name} total: $</h2>
+            <h2 className='second-header'>{name} total: $0</h2>
         </div>
     )
 }
