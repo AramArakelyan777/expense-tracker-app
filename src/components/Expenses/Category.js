@@ -35,7 +35,7 @@ export default function Category({ name }) {
             <h2 className='second-header'>{name} expenses</h2>
             {expensesList.map(item => <Expense key={item.id} date={item.date} expenseAmmount={item.expenseAmmount} description={item.description} />)}
 
-            <form>
+            <form className="expenseForm">
                 <input
                     type="date"
                     required ref={dateRef}

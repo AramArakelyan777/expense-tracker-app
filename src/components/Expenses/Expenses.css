@@ -72,3 +72,7 @@
 .expenseAmmount {
     color: red;
 }
+
+.expenseForm {
+    margin-top: 20px;
+}
