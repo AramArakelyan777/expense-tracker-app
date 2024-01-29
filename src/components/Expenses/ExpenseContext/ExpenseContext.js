@@ -13,12 +13,12 @@ export const ExpenseContextProvider = ({ children }) => {
         return () => clearTimeout(timeoutId);
     }, [date])
 
-    const handleDateChange = (e) => {
-        setDate(e.target.value)
+    const handleDateChange = (value) => {
+        setDate(value)
     }
 
 
-    const [expenseAmmount, setExpenseAmmount] = useState()
+    const [expenseAmmount, setExpenseAmmount] = useState(null)
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -28,8 +28,8 @@ export const ExpenseContextProvider = ({ children }) => {
         return () => clearTimeout(timeoutId)
     }, [expenseAmmount])
 
-    const handleAmmountChange = (e) => {
-        setExpenseAmmount(e.target.value)
+    const handleAmmountChange = (value) => {
+        setExpenseAmmount(value)
     }
 
 
@@ -43,8 +43,8 @@ export const ExpenseContextProvider = ({ children }) => {
         return () => clearTimeout(timeoutId)
     }, [description])
 
-    const handleDescriptionChange = (e) => {
-        setDescription(e.target.value)
+    const handleDescriptionChange = (value) => {
+        setDescription(value)
     }
 
 
