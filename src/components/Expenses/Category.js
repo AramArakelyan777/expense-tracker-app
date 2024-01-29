@@ -36,24 +36,49 @@ export default function Category({ name }) {
             {expensesList.map(item => <Expense key={item.id} date={item.date} expenseAmmount={item.expenseAmmount} description={item.description} />)}
 
             <form>
-                <input type="date" required ref={dateRef} className='dateInput input-light' onChange={(evt) => handleDateChange(evt.target.value)} /><br />
+                <input
+                    type="date"
+                    required ref={dateRef}
+                    className='dateInput input-light'
+                    onChange={(evt) => handleDateChange(evt.target.value)}
+                />
+                <br />
 
-                <input type="number" required ref={expenseAmmountRef} placeholder='Expense ammount' className='expenseInput input-light' onChange={(evt) => handleAmmountChange(evt.target.value)} /><br />
+                <input
+                    type="number"
+                    required ref={expenseAmmountRef}
+                    placeholder='Expense ammount'
+                    className='expenseInput input-light'
+                    onChange={(evt) => handleAmmountChange(evt.target.value)}
+                />
+                <br />
 
-                <textarea required className='descriptionInput input-light' ref={descriptionRef} placeholder='Small description' onChange={(evt) => handleDescriptionChange(evt.target.value)} /><br />
+                <textarea
+                    required
+                    className='descriptionInput input-light'
+                    ref={descriptionRef}
+                    placeholder='Small description'
+                    onChange={(evt) => handleDescriptionChange(evt.target.value)}
+                />
+                <br />
 
-                <button className="addAnExpense" onClick={(evt) => {
-                    evt.preventDefault()
-                    if (date && expenseAmmount && description) {
-                        dispatchExpensesList({ type: "ADD_AN_EXPENSE", payload: { date, expenseAmmount, description } })
-                        dateRef.current.value = null
-                        expenseAmmountRef.current.value = 0
-                        descriptionRef.current.value = ""
-                        handleDateChange(null)
-                        handleAmmountChange(0)
-                        handleDescriptionChange("")
-                    } else console.error("expense form values can't be empty")
-                }}>Add an expense</button>
+                <button
+                    className="addAnExpense"
+                    onClick={(evt) => {
+                        evt.preventDefault()
+
+                        if (date && expenseAmmount && description) {
+                            dispatchExpensesList({ type: "ADD_AN_EXPENSE", payload: { date, expenseAmmount, description } })
+                            dateRef.current.value = null
+                            expenseAmmountRef.current.value = 0
+                            descriptionRef.current.value = ""
+                            handleDateChange(null)
+                            handleAmmountChange(0)
+                            handleDescriptionChange("")
+                        } else console.error("expense form values can't be empty")
+                    }}
+                >Add an expense
+                </button>
             </form>
 
             <h2 className='second-header'>{name} total: $</h2>
