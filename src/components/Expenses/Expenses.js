@@ -1,7 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import "./Expenses.css"
 import "../../assets/text.css"
-// import Expense from './Expense'
 import Category from "./Category"
 
 export default function Expenses() {
@@ -22,7 +21,7 @@ export default function Expenses() {
     const [categoriesState, dispatchCategories] = useReducer(categoryReducer, [])
 
     return (
-        <>
+        <div className='expensesPageDiv'>
             <h1 className="main-header">Financial insights</h1>
             <input className="search input-light" placeholder='Search categories' />
 
@@ -39,7 +38,8 @@ export default function Expenses() {
                 <input type="text" className="category input-light" placeholder='Add a category' value={category} onChange={evt => setCategory(evt.target.value)} /><br />
                 <button className="add" onClick={(evt) => {
                     evt.preventDefault()
-                    dispatchCategories({ type: "ADD_A_CATEGORY", payload: { name: category } })
+                    if (category) dispatchCategories({ type: "ADD_A_CATEGORY", payload: { name: category } })
+                    setCategory("")
                 }}>Add</button>
             </form>
 
@@ -52,6 +52,6 @@ export default function Expenses() {
             </div>
 
             <h1 className="main-header">Total expenses: $</h1>
-        </>
+        </div>
     )
 }
