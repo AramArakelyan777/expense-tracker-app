@@ -76,3 +76,11 @@
 .expenseForm {
     margin-top: 20px;
 }
+
+.dateAndClose {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+}

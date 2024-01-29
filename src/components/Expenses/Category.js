@@ -70,7 +70,7 @@ export default function Category({ name }) {
                         if (date && expenseAmmount && description) {
                             dispatchExpensesList({ type: "ADD_AN_EXPENSE", payload: { date, expenseAmmount, description } })
                             dateRef.current.value = null
-                            expenseAmmountRef.current.value = 0
+                            expenseAmmountRef.current.value = null
                             descriptionRef.current.value = ""
                             handleDateChange(null)
                             handleAmmountChange(0)
