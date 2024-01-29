@@ -8,19 +8,22 @@ import { AuthProvider } from './components/Login/auth'
 import RequireAuth from "./components/Login/RequireAuth"
 import User from "./components/Login/User"
 import Expenses from "./components/Expenses/Expenses"
+import { ExpenseContextProvider } from './components/Expenses/ExpenseContext/ExpenseContext'
 
 function App() {
     return (
         <div className="App">
             <AuthProvider>
-                <Navbar />
-                <Routes>
-                    <Route path="*" element={<NotFound />} />
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/user" element={<RequireAuth><User /></RequireAuth>} />
-                    <Route path="/expenses" element={<RequireAuth><Expenses /></RequireAuth>} />
-                </Routes>
+                <ExpenseContextProvider>
+                    <Navbar />
+                    <Routes>
+                        <Route path="*" element={<NotFound />} />
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/user" element={<RequireAuth><User /></RequireAuth>} />
+                        <Route path="/expenses" element={<RequireAuth><Expenses /></RequireAuth>} />
+                    </Routes>
+                </ExpenseContextProvider>
             </AuthProvider>
         </div>
     )

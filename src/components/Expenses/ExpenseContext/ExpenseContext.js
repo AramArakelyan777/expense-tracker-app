@@ -8,7 +8,7 @@ export const ExpenseContextProvider = ({ children }) => {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             console.log('Date value changed:', date);
-        }, 1000);
+        }, 800);
 
         return () => clearTimeout(timeoutId);
     }, [date])
@@ -23,7 +23,7 @@ export const ExpenseContextProvider = ({ children }) => {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             console.log('Expense ammount value changed:', expenseAmmount);
-        }, 1000)
+        }, 800)
 
         return () => clearTimeout(timeoutId)
     }, [expenseAmmount])
@@ -38,7 +38,7 @@ export const ExpenseContextProvider = ({ children }) => {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             console.log('Description value changed:', description);
-        }, 1000)
+        }, 800)
 
         return () => clearTimeout(timeoutId)
     }, [description])
