@@ -12,6 +12,12 @@ export default function Category({ name }) {
     const expenseAmmountRef = useRef(null)
     const descriptionRef = useRef(null)
 
+    const clearInputs = () => {
+        handleDateChange(null)
+        handleAmmountChange(0)
+        handleDescriptionChange("")
+    }
+
     return (
         <div className="oneCategory">
             <h2 className='second-header'>{name} expenses</h2>
@@ -54,9 +60,7 @@ export default function Category({ name }) {
                             dateRef.current.value = null
                             expenseAmmountRef.current.value = null
                             descriptionRef.current.value = ""
-                            handleDateChange(null)
-                            handleAmmountChange(0)
-                            handleDescriptionChange("")
+                            clearInputs()
                         } else console.error("expense form values can't be empty")
                     }}
                 >Add an expense

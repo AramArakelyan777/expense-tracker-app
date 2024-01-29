@@ -23,6 +23,7 @@ export const ExpenseReducerContextProvider = ({ children }) => {
     const [expensesList, dispatchExpensesList] = useReducer(expenseReducer, [])
 
     const addExpense = (date, expenseAmmount, description) => dispatchExpensesList({ type: "ADD_AN_EXPENSE", payload: { date, expenseAmmount, description } })
+    const deleteExpense = (date, expenseAmmount, description) => dispatchExpensesList({ type: "DELETE_AN_EXPENSE", payload: { date, expenseAmmount, description } })
 
-    return <ExpenseReducerContext.Provider value={{ expensesList, addExpense }} >{children}</ExpenseReducerContext.Provider>
+    return <ExpenseReducerContext.Provider value={{ expensesList, addExpense, deleteExpense }} >{children}</ExpenseReducerContext.Provider>
 }
