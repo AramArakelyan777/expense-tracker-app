@@ -18,16 +18,26 @@ export default function Expenses() {
                 return state
         }
     }
+
     const [categoriesState, dispatchCategories] = useReducer(categoryReducer, [])
 
     return (
         <div className='expensesPageDiv'>
             <h1 className="main-header">Financial insights</h1>
-            <input className="search input-light" placeholder='Search categories' />
+            <input
+                className="search input-light"
+                placeholder='Search categories'
+            />
 
             <div className='yourSalary'>
                 <h2 className='second-header'>Enter Your Monthly Salary</h2>
-                <input type='number' className="salary input-light" placeholder='Your Salary' value={salary} onChange={evt => setSalary(evt.target.value)} />
+                <input
+                    type='number'
+                    className="salary input-light"
+                    placeholder='Your Salary'
+                    value={salary}
+                    onChange={evt => setSalary(evt.target.value)}
+                />
             </div>
 
             <div className='categoryDiv'>
@@ -35,12 +45,22 @@ export default function Expenses() {
             </div>
 
             <form className='addACategory'>
-                <input type="text" className="category input-light" placeholder='Add a category' value={category} onChange={evt => setCategory(evt.target.value)} /><br />
-                <button className="add" onClick={(evt) => {
-                    evt.preventDefault()
-                    if (category) dispatchCategories({ type: "ADD_A_CATEGORY", payload: { name: category } })
-                    setCategory("")
-                }}>Add</button>
+                <input
+                    type="text"
+                    className="category input-light"
+                    placeholder='Add a category'
+                    value={category} onChange={evt => setCategory(evt.target.value)}
+                />
+                <br />
+                <button
+                    className="add"
+                    onClick={(evt) => {
+                        evt.preventDefault()
+                        if (category) dispatchCategories({ type: "ADD_A_CATEGORY", payload: { name: category } })
+                        setCategory("")
+                    }}
+                >Add
+                </button>
             </form>
 
             <div className="donutChart">

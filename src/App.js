@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import HomePage from "./components/Home/HomePage"
 import Navbar from "./components/Navbar/Navbar"
 import Login from "./components/Login/Login"
-import NotFound from "./components/NotFound"
+import NotFound from "./components/NotFound/NotFound"
 import { AuthProvider } from './components/Login/auth'
 import RequireAuth from "./components/Login/RequireAuth"
 import User from "./components/Login/User"

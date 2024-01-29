@@ -8,10 +8,15 @@ import "tippy.js/dist/tippy.css"
 
 export default function Navbar() {
     const auth = useAuth()
+
     return (
         <nav className="navbar">
             <NavLink to="/">
-                <img alt="logo" src={logo} className="logo" />
+                <img
+                    alt="logo"
+                    src={logo}
+                    className="logo"
+                />
             </NavLink>
             <div className="navbar-links">
                 {!auth.user ?

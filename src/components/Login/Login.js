@@ -20,11 +20,21 @@ function Login() {
             <h1 className='main-header'>Unlock the door to financial insights. Log in now.</h1>
             <p>Your financial journey is just a login away. Experience the convenience of tracking,<br />managing, and optimizing your expenses—all in one secure place.</p>
             <form className="loginForm">
-                <input className="username input-light" placeholder="Enter Your Username" type='text' onChange={evt => setUser(evt.target.value)} /><br />
-                <Button className="button login" onClick={() => {
-                    auth.login(user)
-                    navigate("/", { replace: true })
-                }}>Log In</Button>
+                <input
+                    className="username input-light"
+                    placeholder="Enter Your Username"
+                    type='text'
+                    onChange={evt => setUser(evt.target.value)}
+                />
+                <br />
+                <Button
+                    className="button login"
+                    onClick={() => {
+                        auth.login(user)
+                        navigate("/", { replace: true })
+                    }}
+                >Log In
+                </Button>
             </form>
         </div>
     )

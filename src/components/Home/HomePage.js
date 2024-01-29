@@ -49,7 +49,11 @@ export default function HomePage() {
                     </ul>
                 </div>
             </div>
-            <img alt="homePageImage" src={homePageBg} className="homePageImage" />
+            <img
+                alt="homePageImage"
+                src={homePageBg}
+                className="homePageImage"
+            />
         </div >
-    );
+    )
 }
