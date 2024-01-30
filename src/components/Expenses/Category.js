@@ -2,11 +2,12 @@ import React, { useContext, useRef } from 'react'
 import "../../assets/text.css"
 import Expense from './Expense'
 import "./Expenses.css"
-import { ExpenseContext, ExpenseContextProvider } from "./ExpenseContext/ExpenseContext"
+import { ExpenseContext } from "./ExpenseContext/ExpenseContext"
+import { ExpenseReducerContext } from './ExpenseContext/ExpenseContextReducer'
 
 export default function Category({ name }) {
     const { date, expenseAmmount, description, handleDateChange, handleAmmountChange, handleDescriptionChange } = useContext(ExpenseContext)
-    const { expensesList, addExpense } = useContext(ExpenseContextProvider)
+    const { expensesList, addExpense } = useContext(ExpenseReducerContext)
 
     const dateRef = useRef(null)
     const expenseAmmountRef = useRef(null)
