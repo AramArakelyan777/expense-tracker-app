@@ -1,9 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react"
 import "../../assets/text.css"
 import { IoCloseCircle } from "react-icons/io5"
-import { ExpenseReducerContext } from './ExpenseContext/ExpenseContextReducer'
+import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
 
-export default function Expense({ id, date, expenseAmmount, description, category }) {
+export default function Expense({
+    id,
+    date,
+    expenseAmmount,
+    description,
+    category,
+}) {
     const { deleteExpense } = useContext(ExpenseReducerContext)
 
     return (
@@ -17,7 +23,8 @@ export default function Expense({ id, date, expenseAmmount, description, categor
                     onClick={() => deleteExpense(category, id)}
                 />
             </div>
-            <span className="expenseAmmount">${expenseAmmount} expenses</span><br />
+            <span className="expenseAmmount">${expenseAmmount} expenses</span>
+            <br />
             <span className="description">{description}</span>
         </div>
     )

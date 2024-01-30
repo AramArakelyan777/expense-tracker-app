@@ -42,10 +42,16 @@ export const ExpenseReducerContextProvider = ({ children }) => {
         })
 
     const deleteExpense = (category, id) =>
-        dispatchExpensesList({ type: "DELETE_AN_EXPENSE", category, payload: { id } })
+        dispatchExpensesList({
+            type: "DELETE_AN_EXPENSE",
+            category,
+            payload: { id },
+        })
 
     return (
-        <ExpenseReducerContext.Provider value={{ expensesList, addExpense, deleteExpense }}>
+        <ExpenseReducerContext.Provider
+            value={{ expensesList, addExpense, deleteExpense }}
+        >
             {children}
         </ExpenseReducerContext.Provider>
     )

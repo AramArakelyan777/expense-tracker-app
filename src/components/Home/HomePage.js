@@ -1,11 +1,11 @@
-import React from 'react';
-import homePageBg from '../../assets/img/homePageImage.jpg';
-import './HomePage.css';
+import React from "react"
+import homePageBg from "../../assets/img/homePageImage.jpg"
+import "./HomePage.css"
 import "../../assets/text.css"
-import { FaMoneyBillWave } from 'react-icons/fa';
-import { GrConfigure } from 'react-icons/gr';
-import { FaListAlt, FaSearchDollar, FaChartArea } from 'react-icons/fa';
-import { IconContext } from 'react-icons';
+import { FaMoneyBillWave } from "react-icons/fa"
+import { GrConfigure } from "react-icons/gr"
+import { FaListAlt, FaSearchDollar, FaChartArea } from "react-icons/fa"
+import { IconContext } from "react-icons"
 
 export default function HomePage() {
     return (
@@ -18,32 +18,49 @@ export default function HomePage() {
                     <ul>
                         <IconContext.Provider value={{ size: 25 }}>
                             <li>
-                                <FaMoneyBillWave style={{ marginRight: '10px' }} />
-                                Track your expenses: easily categorize your expenses.
+                                <FaMoneyBillWave
+                                    style={{ marginRight: "10px" }}
+                                />
+                                Track your expenses: easily categorize your
+                                expenses.
                             </li>
                             <li>
                                 <IconContext.Provider value={{ size: 25 }}>
-                                    <GrConfigure style={{ marginRight: '10px' }} />
+                                    <GrConfigure
+                                        style={{ marginRight: "10px" }}
+                                    />
                                 </IconContext.Provider>
-                                Add expenses and income: seamlessly add expenses or delete the existing ones.
+                                Add expenses and income: seamlessly add expenses
+                                or delete the existing ones.
                             </li>
                             <li>
                                 <IconContext.Provider value={{ size: 25 }}>
-                                    <FaListAlt style={{ marginRight: '10px' }} />
+                                    <FaListAlt
+                                        style={{ marginRight: "10px" }}
+                                    />
                                 </IconContext.Provider>
-                                Expense list: view a comprehensive list of your expenses, including date, description, amount, and category.
+                                Expense list: view a comprehensive list of your
+                                expenses, including date, description, amount,
+                                and category.
                             </li>
                             <li>
                                 <IconContext.Provider value={{ size: 25 }}>
-                                    <FaSearchDollar style={{ marginRight: '10px' }} />
+                                    <FaSearchDollar
+                                        style={{ marginRight: "10px" }}
+                                    />
                                 </IconContext.Provider>
-                                Filter and search: filter and search expenses based on date range.
+                                Filter and search: filter and search expenses
+                                based on date range.
                             </li>
                             <li>
                                 <IconContext.Provider value={{ size: 25 }}>
-                                    <FaChartArea style={{ marginRight: '10px' }} />
+                                    <FaChartArea
+                                        style={{ marginRight: "10px" }}
+                                    />
                                 </IconContext.Provider>
-                                Expense summary: get a quick overview of total expenses and income, also with interactive charts.
+                                Expense summary: get a quick overview of total
+                                expenses and income, also with interactive
+                                charts.
                             </li>
                         </IconContext.Provider>
                     </ul>
@@ -54,6 +71,6 @@ export default function HomePage() {
                 src={homePageBg}
                 className="homePageImage"
             />
-        </div >
+        </div>
     )
 }

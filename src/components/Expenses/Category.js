@@ -1,9 +1,9 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef } from "react"
 import "../../assets/text.css"
-import Expense from './Expense'
+import Expense from "./Expense"
 import "./Expenses.css"
 import { ExpenseContext } from "./ExpenseContext/ExpenseContext"
-import { ExpenseReducerContext } from './ExpenseContext/ExpenseContextReducer'
+import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
 
 export default function Category({ name }) {
     const {
@@ -29,7 +29,7 @@ export default function Category({ name }) {
 
     return (
         <div className="oneCategory">
-            <h2 className='second-header'>{name} expenses</h2>
+            <h2 className="second-header">{name} expenses</h2>
             {expensesList[name]?.map((item) => (
                 <Expense
                     key={item.id}
@@ -44,8 +44,9 @@ export default function Category({ name }) {
             <form className="expenseForm">
                 <input
                     type="date"
-                    required ref={dateRef}
-                    className='dateInput input-light'
+                    required
+                    ref={dateRef}
+                    className="dateInput input-light"
                     onChange={(evt) => handleDateChange(evt.target.value)}
                     name="date"
                 />
@@ -53,9 +54,10 @@ export default function Category({ name }) {
 
                 <input
                     type="number"
-                    required ref={expenseAmmountRef}
-                    placeholder='Expense ammount'
-                    className='expenseInput input-light'
+                    required
+                    ref={expenseAmmountRef}
+                    placeholder="Expense ammount"
+                    className="expenseInput input-light"
                     onChange={(evt) => handleAmmountChange(evt.target.value)}
                     name="expense"
                 />
@@ -63,10 +65,12 @@ export default function Category({ name }) {
 
                 <textarea
                     required
-                    className='descriptionInput input-light'
+                    className="descriptionInput input-light"
                     ref={descriptionRef}
-                    placeholder='Small description'
-                    onChange={(evt) => handleDescriptionChange(evt.target.value)}
+                    placeholder="Small description"
+                    onChange={(evt) =>
+                        handleDescriptionChange(evt.target.value)
+                    }
                     name="description"
                 />
                 <br />
@@ -82,13 +86,15 @@ export default function Category({ name }) {
                             expenseAmmountRef.current.value = null
                             descriptionRef.current.value = ""
                             clearInputs()
-                        } else console.error("expense form values can't be empty")
+                        } else
+                            console.error("expense form values can't be empty")
                     }}
-                >Add an expense
+                >
+                    Add an expense
                 </button>
             </form>
 
-            <h2 className='second-header'>{name} total: $0</h2>
+            <h2 className="second-header">{name} total: $0</h2>
         </div>
     )
 }

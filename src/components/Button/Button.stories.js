@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "./Button"
 
 export default {
     title: "Button",
@@ -7,11 +7,11 @@ export default {
         variant: {
             control: { type: "select" },
             options: ["login", "logout"],
-        }
-    }
+        },
+    },
 }
 
-const Template = args => <Button {...args} />
+const Template = (args) => <Button {...args} />
 
 export const LogIn = Template.bind({})
 LogIn.args = {

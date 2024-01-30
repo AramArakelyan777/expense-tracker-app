@@ -11,14 +11,18 @@ function User() {
     return (
         <div>
             <h1 className="main-header">Logout and return when you need us.</h1>
-            <p>Thank you for trusting us with your financial journey, {auth.user}.</p>
+            <p>
+                Thank you for trusting us with your financial journey,{" "}
+                {auth.user}.
+            </p>
             <Button
                 className="button logout"
                 onClick={() => {
                     auth.logout()
                     navigate("/")
                 }}
-            >Log Out
+            >
+                Log Out
             </Button>
         </div>
     )
