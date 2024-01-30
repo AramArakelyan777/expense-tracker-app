@@ -3,12 +3,30 @@ import "./Expenses.css"
 import "../../assets/text.css"
 import Category from "./Category"
 import { CategoryContext } from "./ExpenseContext/CategoryContext"
+import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
 
 export default function Expenses() {
     const [salary, setSalary] = useState()
     const [category, setCategory] = useState("")
 
     const { categoriesState, addACategory } = useContext(CategoryContext)
+
+    const { expensesList } = useContext(ExpenseReducerContext)
+
+    const calculateTotalCategoryExpenses = () => {
+        let totalCategoryExpenses = 0
+
+        categoriesState.forEach((item) => {
+            const categoryName = item.name
+            expensesList[categoryName]?.forEach((expense) => {
+                totalCategoryExpenses += parseFloat(expense.expenseAmmount)
+            })
+        })
+
+        return totalCategoryExpenses.toFixed(2)
+    }
+
+    const totalCategoryExpenses = calculateTotalCategoryExpenses()
 
     return (
         <div className="expensesPageDiv">
@@ -69,7 +87,9 @@ export default function Expenses() {
                 </h1>
             </div>
 
-            <h1 className="main-header">Total expenses: $</h1>
+            <h1 className="main-header">
+                Total expenses: ${totalCategoryExpenses}
+            </h1>
         </div>
     )
 }

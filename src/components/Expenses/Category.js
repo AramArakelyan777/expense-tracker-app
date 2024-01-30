@@ -33,6 +33,18 @@ export default function Category({ id, name }) {
         descriptionRef.current.value = ""
     }
 
+    const calculateTotalExpenses = () => {
+        let total = 0
+
+        expensesList[name]?.forEach((expense) => {
+            total += parseFloat(expense.expenseAmmount)
+        })
+
+        return total
+    }
+
+    const totalExpenses = calculateTotalExpenses()
+
     return (
         <div className="oneCategory">
             <h2 className="second-header">{name} expenses</h2>
@@ -81,7 +93,7 @@ export default function Category({ id, name }) {
                     className="expenseInput input-light"
                     onChange={(evt) => {
                         handleAmmountChange(evt.target.value)
-                        setLocalExpenseAmmount(evt.target.value)
+                        setLocalExpenseAmmount(parseFloat(evt.target.value))
                     }}
                     name="expense"
                 />
@@ -125,7 +137,9 @@ export default function Category({ id, name }) {
                 </button>
             </form>
 
-            <h2 className="second-header">{name} total: $0</h2>
+            <h2 className="second-header">
+                {name} total: ${totalExpenses.toFixed(2)}
+            </h2>
         </div>
     )
 }
