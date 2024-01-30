@@ -1,31 +1,14 @@
-import React, { useReducer, useState } from "react"
+import React, { useContext, useState } from "react"
 import "./Expenses.css"
 import "../../assets/text.css"
 import Category from "./Category"
+import { CategoryContext } from "./ExpenseContext/CategoryContext"
 
 export default function Expenses() {
     const [salary, setSalary] = useState()
     const [category, setCategory] = useState("")
 
-    const categoryReducer = (state, action) => {
-        switch (action.type) {
-            case "ADD_A_CATEGORY":
-                return [
-                    ...state,
-                    {
-                        id: Math.round(Math.random() * 10000000),
-                        name: action.payload.name,
-                    },
-                ]
-            default:
-                return state
-        }
-    }
-
-    const [categoriesState, dispatchCategories] = useReducer(
-        categoryReducer,
-        []
-    )
+    const { categoriesState, addACategory } = useContext(CategoryContext)
 
     return (
         <div className="expensesPageDiv">
@@ -68,11 +51,7 @@ export default function Expenses() {
                     className="add"
                     onClick={(evt) => {
                         evt.preventDefault()
-                        if (category)
-                            dispatchCategories({
-                                type: "ADD_A_CATEGORY",
-                                payload: { name: category },
-                            })
+                        if (category) addACategory(category)
                         setCategory("")
                     }}
                 >

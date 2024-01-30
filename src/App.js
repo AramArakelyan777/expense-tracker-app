@@ -10,37 +10,40 @@ import User from "./components/Login/User"
 import Expenses from "./components/Expenses/Expenses"
 import { ExpenseContextProvider } from "./components/Expenses/ExpenseContext/ExpenseContext"
 import { ExpenseReducerContextProvider } from "./components/Expenses/ExpenseContext/ExpenseContextReducer"
+import { CategoryContextProvider } from "./components/Expenses/ExpenseContext/CategoryContext"
 
 function App() {
     return (
         <div className="App">
             <AuthProvider>
-                <ExpenseContextProvider>
-                    <ExpenseReducerContextProvider>
-                        <Navbar />
-                        <Routes>
-                            <Route path="*" element={<NotFound />} />
-                            <Route path="/" element={<HomePage />} />
-                            <Route path="/login" element={<Login />} />
-                            <Route
-                                path="/user"
-                                element={
-                                    <RequireAuth>
-                                        <User />
-                                    </RequireAuth>
-                                }
-                            />
-                            <Route
-                                path="/expenses"
-                                element={
-                                    <RequireAuth>
-                                        <Expenses />
-                                    </RequireAuth>
-                                }
-                            />
-                        </Routes>
-                    </ExpenseReducerContextProvider>
-                </ExpenseContextProvider>
+                <CategoryContextProvider>
+                    <ExpenseContextProvider>
+                        <ExpenseReducerContextProvider>
+                            <Navbar />
+                            <Routes>
+                                <Route path="*" element={<NotFound />} />
+                                <Route path="/" element={<HomePage />} />
+                                <Route path="/login" element={<Login />} />
+                                <Route
+                                    path="/user"
+                                    element={
+                                        <RequireAuth>
+                                            <User />
+                                        </RequireAuth>
+                                    }
+                                />
+                                <Route
+                                    path="/expenses"
+                                    element={
+                                        <RequireAuth>
+                                            <Expenses />
+                                        </RequireAuth>
+                                    }
+                                />
+                            </Routes>
+                        </ExpenseReducerContextProvider>
+                    </ExpenseContextProvider>
+                </CategoryContextProvider>
             </AuthProvider>
         </div>
     )
