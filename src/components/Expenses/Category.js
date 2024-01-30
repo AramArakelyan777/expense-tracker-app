@@ -1,43 +1,39 @@
-import React, { useContext, useRef } from "react"
+import React, { useContext, useRef, useState } from "react"
 import "../../assets/text.css"
 import Expense from "./Expense"
 import "./Expenses.css"
 import { ExpenseContext } from "./ExpenseContext/ExpenseContext"
 import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
-import { IoCloseCircle } from "react-icons/io5"
 
 export default function Category({ name }) {
-    const {
-        date,
-        expenseAmmount,
-        description,
-        handleDateChange,
-        handleAmmountChange,
-        handleDescriptionChange,
-    } = useContext(ExpenseContext)
-
+    const { handleDateChange, handleAmmountChange, handleDescriptionChange } =
+        useContext(ExpenseContext)
     const { expensesList, addExpense } = useContext(ExpenseReducerContext)
 
     const dateRef = useRef(null)
     const expenseAmmountRef = useRef(null)
     const descriptionRef = useRef(null)
 
+    // Local state for each category
+    const [localDate, setLocalDate] = useState(null)
+    const [localExpenseAmmount, setLocalExpenseAmmount] = useState(null)
+    const [localDescription, setLocalDescription] = useState("")
+
     const clearInputs = () => {
-        handleDateChange(null)
-        handleAmmountChange(0)
-        handleDescriptionChange("")
+        // Update state for the specific category
+        setLocalDate(null)
+        setLocalExpenseAmmount(0)
+        setLocalDescription("")
+
+        // Clear inputs using refs
+        dateRef.current.value = null
+        expenseAmmountRef.current.value = null
+        descriptionRef.current.value = ""
     }
 
     return (
         <div className="oneCategory">
             <h2 className="second-header">{name} expenses</h2>
-            <IoCloseCircle
-                color="red"
-                cursor="pointer"
-                size="28px"
-                onClick={() => {}}
-                className="categoryClose"
-            />
             {expensesList[name]?.map((item) => (
                 <Expense
                     key={item.id}
@@ -55,7 +51,10 @@ export default function Category({ name }) {
                     required
                     ref={dateRef}
                     className="dateInput input-light"
-                    onChange={(evt) => handleDateChange(evt.target.value)}
+                    onChange={(evt) => {
+                        handleDateChange(evt.target.value)
+                        setLocalDate(evt.target.value)
+                    }}
                     name="date"
                 />
                 <br />
@@ -66,7 +65,10 @@ export default function Category({ name }) {
                     ref={expenseAmmountRef}
                     placeholder="Expense ammount"
                     className="expenseInput input-light"
-                    onChange={(evt) => handleAmmountChange(evt.target.value)}
+                    onChange={(evt) => {
+                        handleAmmountChange(evt.target.value)
+                        setLocalExpenseAmmount(evt.target.value)
+                    }}
                     name="expense"
                 />
                 <br />
@@ -76,9 +78,10 @@ export default function Category({ name }) {
                     className="descriptionInput input-light"
                     ref={descriptionRef}
                     placeholder="Small description"
-                    onChange={(evt) =>
+                    onChange={(evt) => {
                         handleDescriptionChange(evt.target.value)
-                    }
+                        setLocalDescription(evt.target.value)
+                    }}
                     name="description"
                 />
                 <br />
@@ -88,14 +91,22 @@ export default function Category({ name }) {
                     onClick={(evt) => {
                         evt.preventDefault()
 
-                        if (date && expenseAmmount && description) {
-                            addExpense(name, date, expenseAmmount, description)
-                            dateRef.current.value = null
-                            expenseAmmountRef.current.value = null
-                            descriptionRef.current.value = ""
+                        // Check for emptiness using local state
+                        if (
+                            localDate &&
+                            localExpenseAmmount &&
+                            localDescription
+                        ) {
+                            addExpense(
+                                name,
+                                localDate,
+                                localExpenseAmmount,
+                                localDescription
+                            )
                             clearInputs()
-                        } else
+                        } else {
                             console.error("expense form values can't be empty")
+                        }
                     }}
                 >
                     Add an expense

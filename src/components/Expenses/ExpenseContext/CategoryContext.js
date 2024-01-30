@@ -12,6 +12,11 @@ const categoryReducer = (state, action) => {
                     name: action.payload.category,
                 },
             ]
+        case "DELETE_A_CATEGORY":
+            return [
+                ...state,
+                state.filter((category) => category.id !== action.payload.id),
+            ]
         default:
             return state
     }
@@ -29,8 +34,16 @@ export const CategoryContextProvider = ({ children }) => {
             payload: { category },
         })
 
+    const deleteACategory = (id) =>
+        dispatchCategories({
+            type: "DELETE_A_CATEGORY",
+            payload: { id },
+        })
+
     return (
-        <CategoryContext.Provider value={{ categoriesState, addACategory }}>
+        <CategoryContext.Provider
+            value={{ categoriesState, addACategory, deleteACategory }}
+        >
             {children}
         </CategoryContext.Provider>
     )
