@@ -42,9 +42,6 @@ export const ExpenseContextProvider = ({ children }) => {
     return (
         <ExpenseContext.Provider
             value={{
-                date,
-                expenseAmmount,
-                description,
                 handleDateChange,
                 handleAmmountChange,
                 handleDescriptionChange,

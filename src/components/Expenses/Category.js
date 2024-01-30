@@ -14,18 +14,15 @@ export default function Category({ name }) {
     const expenseAmmountRef = useRef(null)
     const descriptionRef = useRef(null)
 
-    // Local state for each category
     const [localDate, setLocalDate] = useState(null)
     const [localExpenseAmmount, setLocalExpenseAmmount] = useState(null)
     const [localDescription, setLocalDescription] = useState("")
 
     const clearInputs = () => {
-        // Update state for the specific category
         setLocalDate(null)
         setLocalExpenseAmmount(0)
         setLocalDescription("")
 
-        // Clear inputs using refs
         dateRef.current.value = null
         expenseAmmountRef.current.value = null
         descriptionRef.current.value = ""
@@ -90,8 +87,6 @@ export default function Category({ name }) {
                     className="addAnExpense"
                     onClick={(evt) => {
                         evt.preventDefault()
-
-                        // Check for emptiness using local state
                         if (
                             localDate &&
                             localExpenseAmmount &&
