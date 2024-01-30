@@ -21,6 +21,7 @@ export default function Category({ id, name }) {
     const [localDescription, setLocalDescription] = useState("")
 
     const { deleteACategory } = useContext(CategoryContext)
+    const { deleteExpense } = useContext(ExpenseReducerContext)
 
     const clearInputs = () => {
         setLocalDate(null)
@@ -40,7 +41,12 @@ export default function Category({ id, name }) {
                 color="red"
                 cursor="pointer"
                 size="28px"
-                onClick={() => deleteACategory(id)}
+                onClick={() => {
+                    expensesList[name]?.forEach((expense) => {
+                        deleteExpense(name, expense.id)
+                    })
+                    deleteACategory(id)
+                }}
             />
             {expensesList[name]?.map((item) => (
                 <Expense

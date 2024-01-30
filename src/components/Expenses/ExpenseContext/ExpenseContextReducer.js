@@ -22,9 +22,11 @@ const expenseReducer = (state, action) => {
         case "DELETE_AN_EXPENSE":
             return {
                 ...state,
-                [category]: state[category].filter(
-                    (expense) => expense.id !== payload.id
-                ),
+                [category]: state[category]
+                    ? state[category].filter(
+                          (expense) => expense.id !== payload.id
+                      )
+                    : [],
             }
         default:
             return state
