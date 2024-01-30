@@ -33,7 +33,7 @@ export default function Expenses() {
 
             <div className="categoryDiv">
                 {categoriesState.map((item) => (
-                    <Category key={item.id} name={item.name} />
+                    <Category key={item.id} id={item.id} name={item.name} />
                 ))}
             </div>
 

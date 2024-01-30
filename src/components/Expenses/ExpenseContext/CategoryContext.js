@@ -13,10 +13,7 @@ const categoryReducer = (state, action) => {
                 },
             ]
         case "DELETE_A_CATEGORY":
-            return [
-                ...state,
-                state.filter((category) => category.id !== action.payload.id),
-            ]
+            return state.filter((category) => category.id !== action.payload.id)
         default:
             return state
     }

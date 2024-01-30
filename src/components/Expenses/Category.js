@@ -4,8 +4,10 @@ import Expense from "./Expense"
 import "./Expenses.css"
 import { ExpenseContext } from "./ExpenseContext/ExpenseContext"
 import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
+import { IoCloseCircle } from "react-icons/io5"
+import { CategoryContext } from "./ExpenseContext/CategoryContext"
 
-export default function Category({ name }) {
+export default function Category({ id, name }) {
     const { handleDateChange, handleAmmountChange, handleDescriptionChange } =
         useContext(ExpenseContext)
     const { expensesList, addExpense } = useContext(ExpenseReducerContext)
@@ -17,6 +19,8 @@ export default function Category({ name }) {
     const [localDate, setLocalDate] = useState(null)
     const [localExpenseAmmount, setLocalExpenseAmmount] = useState(null)
     const [localDescription, setLocalDescription] = useState("")
+
+    const { deleteACategory } = useContext(CategoryContext)
 
     const clearInputs = () => {
         setLocalDate(null)
@@ -31,6 +35,13 @@ export default function Category({ name }) {
     return (
         <div className="oneCategory">
             <h2 className="second-header">{name} expenses</h2>
+            <IoCloseCircle
+                className="categoryClose"
+                color="red"
+                cursor="pointer"
+                size="28px"
+                onClick={() => deleteACategory(id)}
+            />
             {expensesList[name]?.map((item) => (
                 <Expense
                     key={item.id}
