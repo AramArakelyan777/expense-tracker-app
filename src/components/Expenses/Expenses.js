@@ -27,6 +27,7 @@ export default function Expenses() {
             <input
                 className="search input-light"
                 placeholder='Search categories'
+                name="category-search"
             />
 
             <div className='yourSalary'>
@@ -37,6 +38,7 @@ export default function Expenses() {
                     placeholder='Your Salary'
                     value={salary}
                     onChange={evt => setSalary(evt.target.value)}
+                    name="salary"
                 />
             </div>
 
@@ -50,6 +52,7 @@ export default function Expenses() {
                     className="category input-light"
                     placeholder='Add a category'
                     value={category} onChange={evt => setCategory(evt.target.value)}
+                    name="category"
                 />
                 <br />
                 <button

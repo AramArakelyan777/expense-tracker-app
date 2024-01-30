@@ -29,6 +29,7 @@ export default function Category({ name }) {
                     required ref={dateRef}
                     className='dateInput input-light'
                     onChange={(evt) => handleDateChange(evt.target.value)}
+                    name="date"
                 />
                 <br />
 
@@ -38,6 +39,7 @@ export default function Category({ name }) {
                     placeholder='Expense ammount'
                     className='expenseInput input-light'
                     onChange={(evt) => handleAmmountChange(evt.target.value)}
+                    name="expense"
                 />
                 <br />
 
@@ -47,6 +49,7 @@ export default function Category({ name }) {
                     ref={descriptionRef}
                     placeholder='Small description'
                     onChange={(evt) => handleDescriptionChange(evt.target.value)}
+                    name="description"
                 />
                 <br />
 

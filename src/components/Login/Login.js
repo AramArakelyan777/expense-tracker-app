@@ -25,6 +25,7 @@ function Login() {
                     placeholder="Enter Your Username"
                     type='text'
                     onChange={evt => setUser(evt.target.value)}
+                    name="username-login"
                 />
                 <br />
                 <Button
