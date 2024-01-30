@@ -43,7 +43,11 @@ export default function Expenses() {
             </div>
 
             <div className='categoryDiv'>
-                {categoriesState.map(item => <Category key={item.id} name={item.name} />)}
+                {categoriesState.map(item =>
+                    <Category
+                        key={item.id}
+                        name={item.name}
+                    />)}
             </div>
 
             <form className='addACategory'>
@@ -51,7 +55,8 @@ export default function Expenses() {
                     type="text"
                     className="category input-light"
                     placeholder='Add a category'
-                    value={category} onChange={evt => setCategory(evt.target.value)}
+                    value={category}
+                    onChange={evt => setCategory(evt.target.value)}
                     name="category"
                 />
                 <br />
@@ -59,7 +64,11 @@ export default function Expenses() {
                     className="add"
                     onClick={(evt) => {
                         evt.preventDefault()
-                        if (category) dispatchCategories({ type: "ADD_A_CATEGORY", payload: { name: category } })
+                        if (category)
+                            dispatchCategories({
+                                type: "ADD_A_CATEGORY",
+                                payload: { name: category }
+                            })
                         setCategory("")
                     }}
                 >Add

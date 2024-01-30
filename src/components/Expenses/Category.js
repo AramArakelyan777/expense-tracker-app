@@ -6,7 +6,15 @@ import { ExpenseContext } from "./ExpenseContext/ExpenseContext"
 import { ExpenseReducerContext } from './ExpenseContext/ExpenseContextReducer'
 
 export default function Category({ name }) {
-    const { date, expenseAmmount, description, handleDateChange, handleAmmountChange, handleDescriptionChange } = useContext(ExpenseContext)
+    const {
+        date,
+        expenseAmmount,
+        description,
+        handleDateChange,
+        handleAmmountChange,
+        handleDescriptionChange,
+    } = useContext(ExpenseContext)
+
     const { expensesList, addExpense } = useContext(ExpenseReducerContext)
 
     const dateRef = useRef(null)
@@ -22,7 +30,16 @@ export default function Category({ name }) {
     return (
         <div className="oneCategory">
             <h2 className='second-header'>{name} expenses</h2>
-            {expensesList.map(item => <Expense key={item.id} id={item.id} date={item.date} expenseAmmount={item.expenseAmmount} description={item.description} />)}
+            {expensesList[name]?.map((item) => (
+                <Expense
+                    key={item.id}
+                    id={item.id}
+                    date={item.date}
+                    expenseAmmount={item.expenseAmmount}
+                    description={item.description}
+                    category={name}
+                />
+            ))}
 
             <form className="expenseForm">
                 <input
@@ -60,7 +77,7 @@ export default function Category({ name }) {
                         evt.preventDefault()
 
                         if (date && expenseAmmount && description) {
-                            addExpense(date, expenseAmmount, description)
+                            addExpense(name, date, expenseAmmount, description)
                             dateRef.current.value = null
                             expenseAmmountRef.current.value = null
                             descriptionRef.current.value = ""
