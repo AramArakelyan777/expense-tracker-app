@@ -48,6 +48,7 @@
     padding: 10px;
     box-sizing: border-box;
     margin-top: 20px;
+    position: relative;
 }
 
 .descriptionInput,
@@ -83,4 +84,10 @@
     justify-content: space-between;
     margin: auto;
     align-items: center;
+}
+
+.categoryClose {
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }

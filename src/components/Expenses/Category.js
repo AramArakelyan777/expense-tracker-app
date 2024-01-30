@@ -4,6 +4,7 @@ import Expense from "./Expense"
 import "./Expenses.css"
 import { ExpenseContext } from "./ExpenseContext/ExpenseContext"
 import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
+import { IoCloseCircle } from "react-icons/io5"
 
 export default function Category({ name }) {
     const {
@@ -30,6 +31,13 @@ export default function Category({ name }) {
     return (
         <div className="oneCategory">
             <h2 className="second-header">{name} expenses</h2>
+            <IoCloseCircle
+                color="red"
+                cursor="pointer"
+                size="28px"
+                onClick={() => {}}
+                className="categoryClose"
+            />
             {expensesList[name]?.map((item) => (
                 <Expense
                     key={item.id}
