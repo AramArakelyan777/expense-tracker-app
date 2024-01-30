@@ -22,7 +22,7 @@ export default function Category({ name }) {
     return (
         <div className="oneCategory">
             <h2 className='second-header'>{name} expenses</h2>
-            {expensesList.map(item => <Expense key={item.id} date={item.date} expenseAmmount={item.expenseAmmount} description={item.description} />)}
+            {expensesList.map(item => <Expense key={item.id} id={item.id} date={item.date} expenseAmmount={item.expenseAmmount} description={item.description} />)}
 
             <form className="expenseForm">
                 <input
