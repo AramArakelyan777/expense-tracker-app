@@ -4,6 +4,7 @@ import "../../assets/text.css"
 import Category from "./Category"
 import { CategoryContext } from "./ExpenseContext/CategoryContext"
 import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
+import ExpensesByCategoriesChart from "./Charts/ExpensesByCategoriesChart"
 
 export default function Expenses() {
     const [category, setCategory] = useState("")
@@ -63,7 +64,8 @@ export default function Expenses() {
                 </button>
             </form>
 
-            {/* Expenses chart to be added here */}
+            <h1 className="main-header categoryTotal">Expenses by categories</h1>
+            <ExpensesByCategoriesChart />
 
             <h1 className="main-header total">
                 Total expenses: ${totalCategoryExpenses}
