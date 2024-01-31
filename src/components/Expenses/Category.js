@@ -2,14 +2,11 @@ import React, { useContext, useRef, useState } from "react"
 import "../../assets/text.css"
 import Expense from "./Expense"
 import "./Expenses.css"
-import { ExpenseContext } from "./ExpenseContext/ExpenseContext"
 import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
 import { IoCloseCircle } from "react-icons/io5"
 import { CategoryContext } from "./ExpenseContext/CategoryContext"
 
 export default function Category({ id, name }) {
-    const { handleDateChange, handleAmmountChange, handleDescriptionChange } =
-        useContext(ExpenseContext)
     const { expensesList, addExpense } = useContext(ExpenseReducerContext)
 
     const dateRef = useRef(null)
@@ -78,7 +75,6 @@ export default function Category({ id, name }) {
                     ref={dateRef}
                     className="dateInput input-light"
                     onChange={(evt) => {
-                        handleDateChange(evt.target.value)
                         setLocalDate(evt.target.value)
                     }}
                     name="date"
@@ -92,7 +88,6 @@ export default function Category({ id, name }) {
                     placeholder="Expense ammount"
                     className="expenseInput input-light"
                     onChange={(evt) => {
-                        handleAmmountChange(evt.target.value)
                         setLocalExpenseAmmount(parseFloat(evt.target.value))
                     }}
                     name="expense"
@@ -105,7 +100,6 @@ export default function Category({ id, name }) {
                     ref={descriptionRef}
                     placeholder="Small description"
                     onChange={(evt) => {
-                        handleDescriptionChange(evt.target.value)
                         setLocalDescription(evt.target.value)
                     }}
                     name="description"
