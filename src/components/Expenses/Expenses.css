@@ -38,7 +38,8 @@
     height: 35px;
 }
 
-.categoryDiv {
+.categoryDiv,
+.total {
     margin-top: 70px;
 }
 
@@ -61,8 +62,10 @@
     margin-top: 10px;
 }
 
-.oneExpense {
-    margin-top: 20px;
+.oneExpense,
+.categoryTotal,
+.expenseForm {
+    margin-top: 50px;
 }
 
 .date {
@@ -71,10 +74,6 @@
 
 .expenseAmmount {
     color: red;
-}
-
-.expenseForm {
-    margin-top: 20px;
 }
 
 .dateAndClose {

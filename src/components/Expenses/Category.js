@@ -137,7 +137,7 @@ export default function Category({ id, name }) {
                 </button>
             </form>
 
-            <h2 className="second-header">
+            <h2 className="second-header categoryTotal">
                 {name} total: ${totalExpenses.toFixed(2)}
             </h2>
         </div>

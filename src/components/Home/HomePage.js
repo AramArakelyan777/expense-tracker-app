@@ -30,8 +30,8 @@ export default function HomePage() {
                                         style={{ marginRight: "10px" }}
                                     />
                                 </IconContext.Provider>
-                                Add expenses and income: seamlessly add expenses
-                                or delete the existing ones.
+                                Add expenses: seamlessly add expenses or delete
+                                the existing ones.
                             </li>
                             <li>
                                 <IconContext.Provider value={{ size: 25 }}>
@@ -49,8 +49,8 @@ export default function HomePage() {
                                         style={{ marginRight: "10px" }}
                                     />
                                 </IconContext.Provider>
-                                Filter and search: filter and search expenses
-                                based on date range.
+                                Filter and search: filter and search categories
+                                based on their name.
                             </li>
                             <li>
                                 <IconContext.Provider value={{ size: 25 }}>

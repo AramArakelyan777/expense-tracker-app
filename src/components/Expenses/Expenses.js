@@ -65,7 +65,7 @@ export default function Expenses() {
 
             {/* Expenses chart to be added here */}
 
-            <h1 className="main-header">
+            <h1 className="main-header total">
                 Total expenses: ${totalCategoryExpenses}
             </h1>
         </div>
