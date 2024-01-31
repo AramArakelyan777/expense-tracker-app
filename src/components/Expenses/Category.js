@@ -74,9 +74,7 @@ export default function Category({ id, name }) {
                     required
                     ref={dateRef}
                     className="dateInput input-light"
-                    onChange={(evt) => {
-                        setLocalDate(evt.target.value)
-                    }}
+                    onChange={(evt) => setLocalDate(evt.target.value)}
                     name="date"
                 />
                 <br />
@@ -87,9 +85,9 @@ export default function Category({ id, name }) {
                     ref={expenseAmmountRef}
                     placeholder="Expense ammount"
                     className="expenseInput input-light"
-                    onChange={(evt) => {
+                    onChange={(evt) =>
                         setLocalExpenseAmmount(parseFloat(evt.target.value))
-                    }}
+                    }
                     name="expense"
                 />
                 <br />
@@ -99,9 +97,7 @@ export default function Category({ id, name }) {
                     className="descriptionInput input-light"
                     ref={descriptionRef}
                     placeholder="Small description"
-                    onChange={(evt) => {
-                        setLocalDescription(evt.target.value)
-                    }}
+                    onChange={(evt) => setLocalDescription(evt.target.value)}
                     name="description"
                 />
                 <br />
