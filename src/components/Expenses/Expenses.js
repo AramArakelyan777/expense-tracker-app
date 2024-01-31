@@ -4,14 +4,12 @@ import "../../assets/text.css"
 import Category from "./Category"
 import { CategoryContext } from "./ExpenseContext/CategoryContext"
 import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
-import DonutChart from "./Charts/DonutChart"
+import Chart1 from "./Charts/Chart1"
 
 export default function Expenses() {
-    const [salary, setSalary] = useState()
     const [category, setCategory] = useState("")
 
     const { categoriesState, addACategory } = useContext(CategoryContext)
-
     const { expensesList } = useContext(ExpenseReducerContext)
 
     const calculateTotalCategoryExpenses = () => {
@@ -37,18 +35,6 @@ export default function Expenses() {
                 placeholder="Search categories"
                 name="category-search"
             />
-
-            <div className="yourSalary">
-                <h2 className="second-header">Enter Your Monthly Salary</h2>
-                <input
-                    type="number"
-                    className="salary input-light"
-                    placeholder="Your Salary"
-                    value={salary}
-                    onChange={(evt) => setSalary(evt.target.value)}
-                    name="salary"
-                />
-            </div>
 
             <div className="categoryDiv">
                 {categoriesState.map((item) => (
@@ -78,14 +64,11 @@ export default function Expenses() {
                 </button>
             </form>
 
-            <div className="donutChart">
-                <DonutChart categoryData={categoriesState} />
-            </div>
-
-            <div className="totalChart">
-                <h1 className="main-header">
-                    Difference between expenses and income
-                </h1>
+            <div>
+                <Chart1
+                    categoryData={categoriesState}
+                    expensesList={expensesList}
+                />
             </div>
 
             <h1 className="main-header">

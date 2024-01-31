@@ -59,8 +59,7 @@ export default function HomePage() {
                                     />
                                 </IconContext.Provider>
                                 Expense summary: get a quick overview of total
-                                expenses and income, also with interactive
-                                charts.
+                                expenses, also with interactive charts.
                             </li>
                         </IconContext.Provider>
                     </ul>
