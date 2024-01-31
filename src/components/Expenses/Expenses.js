@@ -77,10 +77,6 @@ export default function Expenses() {
                 </button>
             </form>
 
-            <div className="donutChart">
-                <h1 className="main-header">Expenses by categories</h1>
-            </div>
-
             <div className="totalChart">
                 <h1 className="main-header">
                     Difference between expenses and income
