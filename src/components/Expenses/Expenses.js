@@ -4,6 +4,7 @@ import "../../assets/text.css"
 import Category from "./Category"
 import { CategoryContext } from "./ExpenseContext/CategoryContext"
 import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
+import DonutChart from "./Charts/DonutChart"
 
 export default function Expenses() {
     const [salary, setSalary] = useState()
@@ -76,6 +77,10 @@ export default function Expenses() {
                     Add
                 </button>
             </form>
+
+            <div className="donutChart">
+                <DonutChart categoryData={categoriesState} />
+            </div>
 
             <div className="totalChart">
                 <h1 className="main-header">
