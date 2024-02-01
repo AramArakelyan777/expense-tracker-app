@@ -9,6 +9,8 @@ import ExpensesByCategoriesChart from "./Charts/ExpensesByCategoriesChart"
 export default function Expenses() {
     const [category, setCategory] = useState("")
 
+    const [searchQuery, setSearchQuery] = useState("")
+
     const { categoriesState, addACategory } = useContext(CategoryContext)
     const { expensesList } = useContext(ExpenseReducerContext)
 
@@ -27,6 +29,10 @@ export default function Expenses() {
 
     const totalCategoryExpenses = calculateTotalCategoryExpenses()
 
+    const filteredCategories = categoriesState.filter((item) =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+
     return (
         <div className="expensesPageDiv">
             <h1 className="main-header">Financial insights</h1>
@@ -34,10 +40,12 @@ export default function Expenses() {
                 className="search input-light"
                 placeholder="Search categories"
                 name="category-search"
+                value={searchQuery}
+                onChange={(evt) => setSearchQuery(evt.target.value)}
             />
 
             <div className="categoryDiv">
-                {categoriesState.map((item) => (
+                {filteredCategories.map((item) => (
                     <Category key={item.id} id={item.id} name={item.name} />
                 ))}
             </div>
@@ -64,7 +72,9 @@ export default function Expenses() {
                 </button>
             </form>
 
-            <h1 className="main-header categoryTotal">Expenses by categories</h1>
+            <h1 className="main-header categoryTotal">
+                Expenses by categories
+            </h1>
             <ExpensesByCategoriesChart />
 
             <h1 className="main-header total">
