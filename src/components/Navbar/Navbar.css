@@ -7,11 +7,7 @@
     align-items: center;
 }
 
-.logo {
-    width: 250px;
-}
-
-.navbar-links a {
+.navbar a {
     margin: 0 20px 0 20px;
     color: #000;
     font-weight: 700;
@@ -22,8 +18,9 @@
     color: white;
 }
 
-@media screen and (max-width: 700px) {
-    .navbar-links a {
+@media screen and (max-width: 600px) {
+    .navbar a {
         margin: 0 10px 0 10px;
     }
+
 }
