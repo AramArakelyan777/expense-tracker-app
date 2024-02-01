@@ -5,6 +5,7 @@ import "./Expenses.css"
 import { ExpenseReducerContext } from "./ExpenseContext/ExpenseContextReducer"
 import { IoCloseCircle } from "react-icons/io5"
 import { CategoryContext } from "./ExpenseContext/CategoryContext"
+import ExpenseChart from "./Charts/ExpenseChart"
 
 export default function Category({ id, name }) {
     const { expensesList, addExpense } = useContext(ExpenseReducerContext)
@@ -126,6 +127,8 @@ export default function Category({ id, name }) {
                     Add an expense
                 </button>
             </form>
+
+            <ExpenseChart category={name} />
 
             <h2 className="second-header categoryTotal">
                 {name} total: ${totalExpenses.toFixed(2)}
