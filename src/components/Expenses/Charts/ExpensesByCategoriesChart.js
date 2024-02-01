@@ -3,6 +3,7 @@ import { Line } from "react-chartjs-2"
 import { ExpenseReducerContext } from "../ExpenseContext/ExpenseContextReducer"
 import { CategoryContext } from "../ExpenseContext/CategoryContext"
 import "./Chart.css"
+import { getRandomColor } from "./ExpenseChart"
 
 export default function ExpensesByCategoriesChart() {
     const { expensesList } = useContext(ExpenseReducerContext)
@@ -15,7 +16,7 @@ export default function ExpensesByCategoriesChart() {
 
     useEffect(() => {
         updateChartData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [expensesList, categoriesState])
 
     const updateChartData = () => {
@@ -42,9 +43,6 @@ export default function ExpensesByCategoriesChart() {
             datasets,
         })
     }
-
-    const getRandomColor = () =>
-        `#${Math.floor(Math.random() * 16777215).toString(16)}`
 
     return (
         <div className="chart">

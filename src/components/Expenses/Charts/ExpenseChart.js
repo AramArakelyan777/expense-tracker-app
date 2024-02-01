@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2"
 import { ExpenseReducerContext } from "../ExpenseContext/ExpenseContextReducer"
 import "./Chart.css"
 
-const getRandomColor = () =>
+export const getRandomColor = () =>
     `#${Math.floor(Math.random() * 16777215).toString(16)}`
 
 const ExpenseChart = ({ category }) => {
