@@ -30,3 +30,15 @@
     font-size: 15px;
     font-weight: 300;
 }
+
+@media screen and (max-width: 600px) {
+    .main-header {
+        font-size: 25px;
+    }
+    .second-header {
+        font-size: 20px;
+    }
+    .input-light {
+        font-size: 12px;
+    }
+}

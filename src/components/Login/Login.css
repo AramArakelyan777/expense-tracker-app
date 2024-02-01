@@ -14,3 +14,9 @@
     border: 1px solid;
     padding: 10px;
 }
+
+@media screen and (max-width: 600px) {
+    .username {
+        width: 80%;
+    }
+}

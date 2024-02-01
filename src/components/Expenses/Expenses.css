@@ -1,5 +1,4 @@
 .search,
-.salary,
 .category {
     width: 350px;
     height: 20px;
@@ -8,7 +7,6 @@
     padding: 10px;
 }
 
-.yourSalary,
 .addACategory,
 .donutChart {
     margin-top: 100px;
@@ -35,7 +33,6 @@
 
 .addAnExpense {
     width: 150px;
-    height: 35px;
 }
 
 .categoryDiv,
@@ -88,4 +85,26 @@
     position: absolute;
     right: 20px;
     top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .search,
+    .category,
+    .dateAndClose,
+    .dateInput,
+    .expenseInput,
+    .descriptionInput {
+        width: 80%;
+    }
+
+    .expensesPageDiv {
+        padding: 15px;
+    }
+
+    .categoryClose {
+        right: 5px;
+        top: 5px;
+        width: 20px;
+    }
 }
